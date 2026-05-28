@@ -1,0 +1,30 @@
+# Task Management
+
+- [x] Refactor and stabilize GuideRunningFortheBlind App
+    - [x] Explore project and verify existing setup
+    - [x] Create implementation plan
+    - [x] Update `AndroidManifest.xml` with Foreground Service permissions and components
+    - [x] Create `RunningService.kt` for background operations
+    - [x] Create `AppModule.kt` for Hilt dependency injection
+    - [x] Refactor all ViewModels to use Hilt (`@HiltViewModel`)
+        - [x] `HistoryDetailViewModel.kt`
+        - [x] `HomeViewModel.kt`
+        - [x] `RunningSessionViewModel.kt`
+        - [x] `HistoryViewModel.kt`
+        - [x] `SettingsViewModel.kt`
+        - [x] `PlanCreatorViewModel.kt`
+        - [x] `SpeechViewModel.kt`
+        - [x] `CameraViewModel.kt`
+    - [x] Update all Fragments to use Hilt (`@AndroidEntryPoint`) and inject dependencies
+        - [x] `HomeFragment.kt`
+        - [x] `HistoryFragment.kt`
+        - [x] `HistoryDetailFragment.kt`
+        - [x] `PreRunFragment.kt`
+        - [x] `RunningFragment.kt`
+        - [x] `PostRunFragment.kt`
+        - [x] `SettingsFragment.kt`
+    - [x] Fix `MainActivity.kt` layout reference and remove `android.R`
+    - [x] Fix AI route planning type mismatch in `HomeFragment.kt`
+    - [x] Refactor `AiRoutePlanner.kt` with robust JSON extraction
+    - [x] Clean up `MainApplication.kt` to use `@HiltAndroidApp`
+    - [x] Verify changes (Build and basic checks)

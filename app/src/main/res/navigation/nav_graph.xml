@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.guiderunningfortheblind.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_compose_container">
+        <action
+            android:id="@+id/action_home_to_history"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment" />
+        <!-- 开始跑步 -> 计划创建页（原有，保持不变） -->
+        <action
+            android:id="@+id/action_home_to_preRun"
+            app:destination="@id/preRunFragment" />
+        <!-- 【新增】导航跑步 -> 目的地输入页 -->
+        <action
+            android:id="@+id/action_home_to_destination_input"
+            app:destination="@id/destinationInputFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- 历史记录、设置（原有，保持不变） -->
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.guiderunningfortheblind.ui.history.HistoryFragment"
+        android:label="History">
+        <action
+            android:id="@+id/action_history_to_historyDetail"
+            app:destination="@id/historyDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyDetailFragment"
+        android:name="com.example.guiderunningfortheblind.ui.history.detail.HistoryDetailFragment"
+        android:label="Session Details">
+        <argument android:name="sessionId" app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.guiderunningfortheblind.ui.settings.SettingsFragment"
+        android:label="Settings" />
+
+    <!-- 跑步流程 - 自由跑（原有，保持不变） -->
+    <fragment
+        android:id="@+id/preRunFragment"
+        android:name="com.example.guiderunningfortheblind.ui.running.PreRunFragment"
+        android:label="Pre-Run">
+        <action
+            android:id="@+id/action_preRun_to_running"
+            app:destination="@id/runningFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/runningFragment"
+        android:name="com.example.guiderunningfortheblind.ui.running.RunningFragment"
+        android:label="Running">
+        <action
+            android:id="@+id/action_running_to_postRun"
+            app:destination="@id/postRunFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postRunFragment"
+        android:name="com.example.guiderunningfortheblind.ui.running.PostRunFragment"
+        android:label="Post-Run">
+        <action
+            android:id="@+id/action_postRun_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  【新增】导航跑步流程                           -->
+    <!--  Home -> DestinationInput -> NavigationRunning  -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <fragment
+        android:id="@+id/destinationInputFragment"
+        android:name="com.example.guiderunningfortheblind.ui.running.DestinationInputFragment"
+        android:label="Destination Input"
+        tools:layout="@layout/fragment_compose_container">
+        <action
+            android:id="@+id/action_destinationInput_to_navRunning"
+            app:destination="@id/navigationRunningFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationRunningFragment"
+        android:name="com.example.guiderunningfortheblind.ui.running.NavigationRunningFragment"
+        android:label="Navigation Running"
+        tools:layout="@layout/fragment_compose_container">
+        <action
+            android:id="@+id/action_running_to_postRun"
+            app:destination="@+id/navigationPostRunFragment" /> </fragment>
+
+    <fragment
+        android:id="@+id/navigationPostRunFragment"
+        android:name="com.example.guiderunningfortheblind.ui.running.PostRunFragment"
+        android:label="Post Run Summary" />
+
+</navigation>

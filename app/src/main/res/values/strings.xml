@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GuideRunningFortheBlind</string>
+    <string name="service_description">助盲跑导航后台服务，提供实时导航、避障检测和数据记录</string>
+</resources>
