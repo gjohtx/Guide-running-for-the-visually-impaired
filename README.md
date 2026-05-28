@@ -22,7 +22,7 @@
 当前阶段：v1.0-release 已上线。实现“语音计划 - 实时反馈 - AI 语音路线通知 - 跑后大模型总结”的完整 MVP 闭环。
 
 ## 交付物下载与查看
-**APK 下载链接**：[点击下载 app-debug.apk](./apk/app-debug.apk)
+**APK 下载链接**：[点击下载 app-debug.apk](https://github.com/gjohtx/Guide-running-for-the-visually-impaired/releases)
 **演示视频链接**：[网盘分享](https://www.alipan.com/s/6oqcZR5ovZC)
 ## 核心功能截图
 | ![主页](./images/home.jpg) | ![跑步中页面](./images/chat.jpg) |
